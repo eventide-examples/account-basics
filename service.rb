@@ -103,12 +103,18 @@ class Projection
   apply Deposited do |deposited|
     amount = deposited.amount
     account.deposit(amount)
+
+    # It's impossible to know which even will be received first
+    # so assign the account ID in every event's projection
     account.id = deposited.account_id
   end
 
   apply Withdrawn do |withdrawn|
     amount = withdrawn.amount
     account.withdraw(amount)
+
+    # It's impossible to know which even will be received first
+    # so assign the account ID in every event's projection
     account.id = withdrawn.account_id
   end
 end
