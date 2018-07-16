@@ -26,6 +26,8 @@ For more information on the message store database, see: [http://docs.eventide-p
 
 ## The Code
 
+The service is a rudimentary implementation of accounts, including deposits, withdrawals, and insufficient funds handling.
+
 ``` ruby
 # Deposit command message
 # Send to the account service to effect a deposit
