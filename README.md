@@ -101,9 +101,7 @@ class Account
   end
 end
 
-# Account transformation to and from JSON
-# Entity snapshotting requires a transform to be implemented
-# In the Account class's namespace
+# Account transformation to and from JSON for entity snapshotting
 class Account
   module Transform
     # Intermediate form for all read transforms
