@@ -81,12 +81,12 @@ end
 # Account transformation to and from JSON for entity snapshotting
 class Account
   module Transform
-    # Intermediate form for all read transforms
+    # When reading: Convert hash to Account
     def self.instance(raw_data)
       Account.build(raw_data)
     end
 
-    # Intermediate form for all write transforms
+    # When writing: Convert Account to hash
     def self.raw_data(instance)
       instance.to_h
     end
