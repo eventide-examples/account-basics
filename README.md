@@ -235,6 +235,25 @@ ComponentHost.start(component_name) do |host|
 end
 ```
 
+## Reporting on the Message Store Contents
+
+Once the example has been run for a few moments, both the service and the message producer will have added messages to the message store.
+
+There are two scripts that provide a basic sense of the kinds of things that have been written.
+
+
+### Print the Unique Type Names of Message Written
+
+``` bash
+script/select-message-types.sh
+```
+
+### Print the Unique Stream Names to Which Message Were Written
+
+``` bash
+script/select-stream-names.sh
+```
+
 ## Production Readiness
 
 This basic introduction doesn't demonstrate protections for idempotence and concurrency. Without these considerations, this service isn't production-ready.
