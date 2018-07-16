@@ -242,13 +242,13 @@ Once the example has been run for a few moments, both the service and the messag
 There are two scripts that provide a basic sense of the kinds of things that have been written.
 
 
-### Print the Unique Type Names of Message Written
+**Print the Unique Type Names of Message Written**
 
 ``` bash
 script/select-message-types.sh
 ```
 
-### Print the Unique Stream Names to Which Message Were Written
+**Print the Unique Stream Names to Which Message Were Written**
 
 ``` bash
 script/select-stream-names.sh
