@@ -14,10 +14,10 @@ This is example is built using the [Eventide](http://docs.eventide-project.org/)
 
 ## Setup
 
-Run `scripts/setup.sh` to install the dependencies and create the message store Postgres database.
+Run `script/setup.sh` to install the dependencies and create the message store Postgres database.
 
 ``` bash
-./setup.sh
+script/setup.sh
 ```
 
 Dependencies are installed locally in the `gems` directory.
