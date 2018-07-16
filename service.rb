@@ -78,6 +78,23 @@ class Account
   end
 end
 
+# Account transformation to and from JSON
+# Entity snapshotting requires a transform to be implemented
+# In the Account class's namespace
+class Account
+  module Transform
+    # Intermediate form for all read transforms
+    def self.instance(raw_data)
+      Account.build(raw_data)
+    end
+
+    # Intermediate form for all write transforms
+    def self.raw_data(instance)
+      instance.to_h
+    end
+  end
+end
+
 # Account entity projection
 # Applies account events to an account entity
 class Projection
@@ -107,6 +124,7 @@ class Store
   entity Account
   projection Projection
   reader MessageStore::Postgres::Read
+  snapshot EntitySnapshot::Postgres, 5
 end
 
 # Account command handler with withdrawal implementation
