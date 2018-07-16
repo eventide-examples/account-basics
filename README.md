@@ -145,7 +145,7 @@ class Store
   entity Account
   projection Projection
   reader MessageStore::Postgres::Read
-  snapshot EntitySnapshot::Postgres, 5
+  snapshot EntitySnapshot::Postgres, interval: 5
 end
 
 # Account command handler with withdrawal implementation
