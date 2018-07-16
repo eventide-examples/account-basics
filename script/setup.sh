@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-scripts/install-gems.sh
+script/install-gems.sh
 
 bundle exec evt-pg-recreate-db
