@@ -1,6 +1,6 @@
 # A Basic Microservice Example Using Pub/Sub and Event Sourcing
 
-This example provides a one-file implementation of the various parts of an autonomous, evented service in one place, including a handler, events, commands, entities, a projection, a consumer, and the service startup script.
+This example provides a one-file implementation of the various parts of an autonomous, evented service, including a handler, events, commands, entities, entity snapshotting, a projection, a consumer, consumer offset recording, and the service startup script.
 
 The [service.rb](https://github.com/eventide-examples/account-basics/blob/master/service.rb) file has all the things.
 
