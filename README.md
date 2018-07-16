@@ -28,7 +28,7 @@ For more information on the message store database, see: [http://docs.eventide-p
 
 ``` ruby
 # Deposit command message
-# Send to the account component to effect a deposit
+# Send to the account service to effect a deposit
 class Deposit
   include Messaging::Message
 
@@ -49,7 +49,7 @@ class Deposited
 end
 
 # Withdraw command message
-# Send to the account component to effect a withdrawal
+# Send to the account service to effect a withdrawal
 class Withdraw
   include Messaging::Message
 
@@ -81,7 +81,7 @@ class WithdrawalRejected
 end
 
 # Account entity
-# The account component's model object
+# The account service's model object
 class Account
   include Schema::DataStructure
 
@@ -225,7 +225,7 @@ module Component
 end
 
 # ComponentHost is the runnable part of the service
-# Register the Start module with the component host, then start the
+# Register the component module with the component host, then start the
 # component and messages sent to its streams are dispatched to the handlers
 component_name = 'account-service'
 ComponentHost.start(component_name) do |host|
@@ -235,8 +235,6 @@ end
 
 ## Production Readiness
 
-This is not a production-ready implementation. It's a basic introduction.
+This basic introduction doesn't demonstrate protections for idempotence and concurrency. Without these considerations, this service isn't production-ready.
 
-It doesn't demonstrate protections for idempotence and concurrency.
-
-For an example that is more representative of production-ready evented autonomous service implementation, see: [https://github.com/eventide-examples/account-component](https://github.com/eventide-examples/account-component).
+For an example that is more representative of production-ready evented autonomous service implementation, including testing, client library implementation, and collaboration with external services, see: [https://github.com/eventide-examples/account-component](https://github.com/eventide-examples/account-component).
