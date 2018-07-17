@@ -1,14 +1,5 @@
 require_relative '../gems/bundler/setup'
 
-
-libraries_dir = ENV['LIBRARIES_HOME']
-unless libraries_dir.nil?
-  libraries_dir = File.expand_path(libraries_dir)
-  $LOAD_PATH.unshift libraries_dir unless $LOAD_PATH.include?(libraries_dir)
-end
-
-
-
 require 'eventide/postgres'
 
 class Deposit
