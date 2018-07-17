@@ -36,11 +36,12 @@ loop do
   message_class = message_classes.sample
   account_id = account_ids.sample
   amount = amounts.sample
+  time = Clock.iso8601
 
   message = message_class.new
   message.account_id = account_id
-  message.amount = amounts.sample
-  message.time = Clock.iso8601
+  message.amount = amount
+  message.time = time
 
   stream_name = "account:command-#{account_id}"
 
