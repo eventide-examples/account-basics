@@ -141,10 +141,10 @@ class Handler
   dependency :clock, Clock::UTC
   dependency :store, Store
 
-  def configure
-    Messaging::Postgres::Write.configure(self)
+  def configure(session: nil)
+    Messaging::Postgres::Write.configure(self, session: session)
     Clock::UTC.configure(self)
-    Store.configure(self)
+    Store.configure(self, session: session)
   end
 
   category :account
@@ -202,8 +202,23 @@ end
 # flowing into the consumer's handlers
 module Component
   def self.call
+    message_store_url = ENV['MESSAGE_STORE_URL']
+    message_store_url = ::URI.parse(message_store_url)
+
+    host = message_store_url.host
+    port = message_store_url.port
+    user = message_store_url.user
+
+    dbname = message_store_url.path.delete_prefix('/')
+
+    message_store_settings = MessageStore::Postgres::Settings.build({
+      :host => host,
+      :port => port,
+      :user => user
+    })
+
     account_command_stream_name = 'account:command'
-    AccountConsumer.start(account_command_stream_name)
+    AccountConsumer.start(account_command_stream_name, settings: message_store_settings)
   end
 end
 
