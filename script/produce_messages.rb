@@ -3,24 +3,6 @@ require_relative '../gems/bundler/setup'
 require 'eventide/postgres'
 
 
-message_store_url = ENV['MESSAGE_STORE_URL']
-message_store_url = ::URI.parse(message_store_url)
-
-host = message_store_url.host
-port = message_store_url.port
-user = message_store_url.user
-
-dbname = message_store_url.path.delete_prefix('/')
-
-message_store_settings = MessageStore::Postgres::Settings.build({
-  :host => host,
-  :port => port,
-  :user => user
-})
-
-message_store_session = MessageStore::Postgres::Session.build(settings: message_store_settings)
-
-
 class Deposit
   include Messaging::Message
 
@@ -55,5 +37,5 @@ loop do
 
   stream_name = "account:command-#{account_id}"
 
-  Messaging::Postgres::Write.(message, stream_name, session: message_store_session)
+  Messaging::Postgres::Write.(message, stream_name)
 end
