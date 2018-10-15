@@ -79,6 +79,8 @@ class Account
 end
 
 # Account transformation to and from JSON for entity snapshotting
+# For more info on transformation, see:
+# https://github.com/eventide-project/transform
 class Account
   module Transform
     # When reading: Convert hash to Account
