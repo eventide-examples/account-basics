@@ -49,10 +49,11 @@ module Queries
   end
 end
 
+
+# Usage
 ENV['MESSAGE_STORE_SETTINGS_PATH'] = './settings.json'
 ENV['LOG_LEVEL'] = 'trace'
 ENV['LOG_TAGS'] = 'query'
-
 
 time = Time.new(2000, 2, 1)
 account = Queries::Time.('123', time)
