@@ -21,9 +21,13 @@ module Queries
 
       instance = new(stream_name, entity, projection, condition)
 
-      MessageStore::Postgres::Read.configure(instance, stream_name, session: session)
+      instance.configure(session: session)
 
       instance
+    end
+
+    def configure(session: nil)
+      MessageStore::Postgres::Read.configure(self, stream_name, session: session)
     end
 
     def self.call(entity_id, category, entity_class, projection_class, session: nil, &condition)
