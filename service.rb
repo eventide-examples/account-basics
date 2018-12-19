@@ -106,7 +106,7 @@ class Projection
     amount = deposited.amount
     account.deposit(amount)
 
-    # It's impossible to know which even will be received first
+    # It's impossible to know which event will be received first
     # so assign the account ID in every event's projection
     account.id = deposited.account_id
   end
@@ -115,7 +115,7 @@ class Projection
     amount = withdrawn.amount
     account.withdraw(amount)
 
-    # It's impossible to know which even will be received first
+    # It's impossible to know which event will be received first
     # so assign the account ID in every event's projection
     account.id = withdrawn.account_id
   end
