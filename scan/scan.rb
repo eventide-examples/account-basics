@@ -1,8 +1,6 @@
 require_relative '../gems/bundler/setup'
 require 'eventide/postgres'
 
-# require_relative '../service.rb'
-
 module StreamScan
   class Postgres
     include Initializer
