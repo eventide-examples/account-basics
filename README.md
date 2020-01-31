@@ -22,7 +22,7 @@ script/setup.sh
 
 Dependencies are installed locally in the `gems` directory.
 
-For more information on the message store database, see: [http://docs.eventide-project.org/user-guide/message-store/install.html](http://docs.eventide-project.org/user-guide/message-store/install.html)
+For more information on the message store database, see: [http://docs.eventide-project.org/user-guide/message-db/](http://docs.eventide-project.org/user-guide/message-db/)
 
 ## The Code
 
