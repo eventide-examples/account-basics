@@ -2,4 +2,4 @@
 
 script/install-gems.sh
 
-bundle exec evt-pg-recreate-db
+bundle exec mdb-recreate-db
